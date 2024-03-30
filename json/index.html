@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão com Polinômio de Grau 4</title>
+</head>
+
+<body>
+    <h1>Previsão com Polinômio de Grau 4</h1>
+    <div id="resultado"></div>
+
+    <script>
+        function calcularPrevisao(coeficientes, ano) {
+            let previsao = 0;
+            for (let i = 0; i < coeficientes.length; i++) {
+                previsao += coeficientes[i]["Coeff."] * Math.pow(ano, coeficientes[i]["Exponent"]);
+            }
+            return previsao;
+        }
+
+        const coeficientes = [
+            { "Exponent": 1, "Coeff.": -211514612639439.25 },
+            { "Exponent": 2, "Coeff.": 195796039304.61865 },
+            { "Exponent": 3, "Coeff.": -64304062.00743461 },
+            { "Exponent": 4, "Coeff.": -6737.9044626081595 }
+        ];
+
+        const ano = 2050
+            ;
+        const previsao = calcularPrevisao(coeficientes, ano);
+
+        const resultadoElement = document.getElementById("resultado");
+        resultadoElement.innerHTML = "Previsão para o ano " + ano + ": " + previsao;
+    </script>
+</body>
+
+</html>
